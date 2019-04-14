@@ -4,7 +4,7 @@
   setup:
   become: no
 
-- name: install software with apk
+- name: install software using apk
   raw: "apk update ; apk add {{ bootstrap_apk_packages }}"
   when:
     - apk.rc == 0
@@ -14,7 +14,7 @@
   until: apkresult is succeeded
   retries: 3
 
-- name: install software with apt-get
+- name: install software using apt-get
   raw: "apt-get update ; apt-get -y install {{ bootstrap_apt_packages }}"
   when:
     - apt_get.rc == 0
@@ -25,7 +25,7 @@
   until: apt_getresult is succeeded
   retries: 3
 
-- name: install software with dnf
+- name: install software using dnf
   raw: "dnf -y install {{ bootstrap_dnf_packages }}"
   when:
     - dnf.rc == 0
@@ -35,7 +35,7 @@
   until: dnfresult is succeeded
   retries: 3
 
-- name: install software with emerge
+- name: install software using emerge
   raw: "{{ bootstrap_emerge_command }}"
   when:
     - emerge.rc == 0
@@ -45,7 +45,7 @@
   until: emergeresult is succeeded
   retries: 3
 
-- name: install software with pacman
+- name: install software using pacman
   raw: "pacman -Sy ; pacman -T {{ bootstrap_pacman_packages }} || pacman -S --noconfirm {{ bootstrap_pacman_packages }}"
   when:
     - pacman.rc == 0
@@ -55,7 +55,7 @@
   until: pacmanresult is succeeded
   retries: 3
 
-- name: install software with pkg
+- name: install software using pkg
   raw: >
     ASSUME_ALWAYS_YES=YES
     pkg install {{ bootstrap_pkg_packages }}
@@ -69,7 +69,7 @@
   until: pkgresult is succeeded
   retries: 3
 
-- name: install software with pkg_add
+- name: install software using pkg_add
   raw: pkg_add -Iz {{ bootstrap_pkg_add_packages }}
   when:
     - pkg_add.rc == 0
@@ -79,7 +79,7 @@
   until: pkg_add_getresult is succeeded
   retries: 3
 
-- name: install software with yum
+- name: install software using yum
   raw: "yum -y install {{ bootstrap_yum_packages }}"
   when:
     - yum.rc == 0
@@ -89,7 +89,7 @@
   until: yumresult is succeeded
   retries: 3
 
-- name: install software with zypper
+- name: install software using zypper
   raw: "zypper -n install {{ bootstrap_zypper_packages }}"
   when:
     - zypper.rc == 0
