@@ -1,0 +1,72 @@
+---
+- name: test apk
+  raw: apk --version
+  register: apk
+  changed_when: apk.rc == 0
+  failed_when: no
+  notify:
+    - install software using apk
+
+- name: test apt_get
+  raw: apt-get --version
+  register: apt_get
+  changed_when: apt_get.rc == 0
+  failed_when: no
+  notify:
+    - install software using apt-get
+
+- name: test dnf
+  raw: dnf --version
+  register: dnf
+  changed_when: dnf.rc == 0
+  failed_when: no
+  notify:
+    - install software using dnf
+
+- name: test emerge
+  raw: emerge --version
+  register: emerge
+  changed_when: emerge.rc == 0
+  failed_when: no
+  notify:
+    - install software using emerge
+
+- name: test pacman
+  raw: pacman --version
+  register: pacman
+  changed_when: pacman.rc == 0
+  failed_when: no
+  notify:
+    - install software using pacman
+
+- name: test pkg
+  raw: pkg --version
+  register: pkg
+  changed_when: pkg.rc == 0
+  failed_when: no
+  notify:
+    - install software using pkg
+
+- name: test pkg_add
+  raw: pkg_info
+  register: pkg_add
+  changed_when: pkg_add.rc == 0
+  failed_when: no
+  notify:
+    - install software using pkg_add
+
+- name: test yum
+  raw: yum --version
+  register: yum
+  changed_when: yum.rc == 0
+  failed_when: no
+  notify:
+    - install software using yum
+
+- name: test zypper
+  raw: zypper --version
+  register: zypper
+  changed_when: zypper.rc == 0
+  failed_when: no
+  notify:
+    - install software using zypper
