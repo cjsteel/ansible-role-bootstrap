@@ -1,40 +1,29 @@
-bootstrap
+bootstrap2
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-bootstrap.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
+<img src="https://docs.ansible.com/ansible-tower/3.2.4/html_ja/installandreference/_static/images/logo_invert.png" width="10%" height="10%" alt="Ansible logo" align="left"/>
+<a href="https://travis-ci.org/robertdebock/ansible-role-bootstrap2"><img src="https://travis-ci.org/robertdebock/ansible-role-bootstrap2.svg?branch=master" alt="Build status" align="left"/></a>
 
 Prepare your system to be managed by Ansible.
 
 Example Playbook
 ----------------
 
-This example is taken from `molecule/default/playbook.yml`:
+This example is taken from `molecule/resources/playbook.yml`:
 ```yaml
 ---
 - name: Converge
   hosts: all
   become: yes
-  gather_facts: yes
+  gather_facts: no
 
   roles:
     - robertdebock.bootstrap
 ```
 
-The machine you are running this on, may need to be prepared. Tests have been done on machines prepared by this playbook:
+The machine you are running this on, may need to be prepared.
 ```yaml
----
-- name: Prepare
-  hosts: all
-  gather_facts: no
-  become: yes
-  serial: 30%
-
-  roles:
-
-  tasks:
-    - name: test connection
-      ping:
-```
+No preparation required.
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
@@ -78,7 +67,7 @@ Context
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
-![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/bootstrap.png "Dependency")
+![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/bootstrap2.png "Dependency")
 
 
 Compatibility
@@ -86,7 +75,7 @@ Compatibility
 
 This role has been tested against the following distributions and Ansible version:
 
-|distribution|ansible 2.6|ansible 2.7|ansible devel|
+|distribution|ansible 2.7|ansible 2.8|ansible devel|
 |------------|-----------|-----------|-------------|
 |alpine-edge*|yes|yes|yes*|
 |alpine-latest|yes|yes|yes*|
@@ -98,7 +87,6 @@ This role has been tested against the following distributions and Ansible versio
 |debian-unstable*|yes|yes|yes*|
 |fedora-latest|yes|yes|yes*|
 |fedora-rawhide*|yes|yes|yes*|
-|gentoo|yes|yes|yes*|
 |kali|yes|yes|yes*|
 |opensuse-leap|yes|yes|yes*|
 |ubuntu-devel*|yes|yes|yes*|
@@ -110,11 +98,11 @@ A single star means the build may fail, it's marked as an experimental build.
 Testing
 -------
 
-[Unit tests](https://travis-ci.org/robertdebock/ansible-role-bootstrap) are done on every commit and periodically.
+[Unit tests](https://travis-ci.org/robertdebock/ansible-role-bootstrap2) are done on every commit and periodically.
 
-If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-bootstrap/issues)
+If you find issues, please register them in [GitHub](https://github.com/robertdebock/ansible-role-bootstrap2/issues)
 
-To test this role locally please use [Molecule](https://github.com/metacloud/molecule):
+To test this role locally please use [Molecule](https://github.com/ansible/molecule):
 ```
 pip install molecule
 molecule test
@@ -143,4 +131,4 @@ Apache-2.0
 Author Information
 ------------------
 
-[Robert de Bock](https://robertdebock.nl/) <robert@meinit.nl>
+Robert de Bock
