@@ -10,10 +10,12 @@ driver:
   provider:
     name: virtualbox
 platforms:
-  - name: bootstrap-debian
-    box: debian/stretch64
-  - name: bootstrap-fedora
-    box: fedora/30-cloud-base
+  - name: boostrap-bionic
+    box: ubuntu/bionic64
+  #- name: bootstrap-debian
+  #  box: debian/stretch64
+  #- name: bootstrap-fedora
+  #  box: fedora/30-cloud-base
 provisioner:
   name: ansible
   playbooks:
