@@ -5,7 +5,7 @@
   gather_facts: no
 
   roles:
-    - ansible-role-bootstrap
+    - bootstrap
 
   tasks:
     - name: test connection
